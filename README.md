@@ -10,6 +10,7 @@ updater reads. Nothing here is source.
 - `latest.json` on a release lists every platform published to it; the installed app fetches
   `https://github.com/blkpanfa/zs-localizer-releases/releases/latest/download/latest.json` (tauri.conf.json › plugins.updater),
   checks the signature against the public key built in, and offers Install and restart.
-- 🔴 That fetch is unauthenticated, so the updater only works while this repo is PUBLIC: a private repo's release assets cannot
-  be downloaded without a token, and the installed app carries none. Flip it with
-  `gh repo edit blkpanfa/zs-localizer-releases --visibility public --accept-visibility-change-consequences`.
+- 🔴 That fetch is unauthenticated, so the updater only works while this repo is PUBLIC (it is, since 2026-11-02): a private
+  repo's release assets cannot be downloaded without a token, and the installed app carries none. Keep it public; the
+  installers are what a user would get anyway, and nothing else lands here.
+- Until the first release is published, an installed copy's update check reports an error (there is no `latest.json` to read).
